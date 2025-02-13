@@ -64,5 +64,5 @@ jobs:
         with:
           app-name: 'ito-test-appservice'
           slot-name: 'Production'
-          package: .
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7836EA37D11A4D83AF704BCE3647BC25 }}
