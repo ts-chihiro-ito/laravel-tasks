@@ -55,8 +55,8 @@ jobs:
         with:
           name: php-app
 
-      #- name: Unzip artifact for deployment
-      #  run: unzip release.zip
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -64,5 +64,5 @@ jobs:
         with:
           app-name: 'ito-test-appservice'
           slot-name: 'Production'
-          package: release.zip
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7836EA37D11A4D83AF704BCE3647BC25 }}
