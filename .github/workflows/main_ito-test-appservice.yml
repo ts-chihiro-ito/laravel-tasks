@@ -34,7 +34,7 @@ jobs:
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./  -x ".git*"
+        run: zip -r release.zip ./  -x ".git*" -x "tests/*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -65,4 +65,5 @@ jobs:
           app-name: 'ito-test-appservice'
           slot-name: 'Production'
           package: .
+          clean: true
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7836EA37D11A4D83AF704BCE3647BC25 }}
