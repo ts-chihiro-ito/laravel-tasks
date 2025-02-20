@@ -14,8 +14,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
-            \Log::info("schedule test");
-        })->cron('* * * * *');
+            \Log::info("schedule test 2");
+        })->cron('* * * * *')->sendOutputTo('/proc/1/fd/1');
     }
 
     /**
